@@ -1,10 +1,16 @@
 import re
 
 import scrapy
+import json
 
 # by Peyman (mohsenikiasari@ce.sharif.edu) in 2019.
 
-words = ['I', 'hope', 'you', 'like', 'this', 'dictionary', 'web', 'crawler']
+#words = ['I', 'hope', 'you', 'like', 'this', 'dictionary', 'web', 'crawler']
+
+with open("words_dictionary.json") as jsonfile:
+    content = json.load(jsonfile)
+
+words = list(content.keys())
 
 #  scrapy crawl oxford -o oxford.jl
 class OxfordCrawler(scrapy.Spider):
